@@ -17,7 +17,8 @@ struct MainView: View {
                     
         case .CreateAccountView:
             CreateAccountView(ViewChanger: ViewChanger)
-                
+        case .HomeView:
+            HomeView(ViewChanger: ViewChanger)
         }
     }
 }

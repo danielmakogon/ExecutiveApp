@@ -38,6 +38,20 @@ class User: ObservableObject {
     func update() {
         didChange.send()
     }
+    func signUp(){
+        
+    }
+}
+
+class CurrentUser: ObservableObject {
+    var didChange = PassthroughSubject<Void,Never>()
+    @Published var username = "" {didSet {update()} }
+    @Published var password = "" {didSet {update()} }
+    func update() {
+        didChange.send()
+    }
+    
+    
 }
 
 

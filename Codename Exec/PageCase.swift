@@ -9,4 +9,5 @@ import Foundation
 enum Page {
     case ContentView
     case CreateAccountView
+    case HomeView
 }

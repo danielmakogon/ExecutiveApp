@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     @StateObject var ViewChanger: viewChanger
     @State var currentPage : Page = .ContentView
     
     @ObservedObject var user = User()
+    
     var body: some View {
         
 //        List {
@@ -35,9 +37,11 @@ struct ContentView: View {
             TextField("Password", text: $user.password)
             Section{
                 Button(action: {
-                    print("Logged In")
+                    print("attempting log in")
                     print (user.username)
                     print (user.password)
+                    login(username: user.username, password: user.password)
+                    
                     
                 }, label: {
                     Text("Login")
@@ -58,7 +62,21 @@ struct ContentView: View {
         
         
     }
-
+    func login(username: String, password: String) {
+        //code for logging in
+        
+        Auth.auth().signIn(withEmail: username, password: password) {
+            (result, error) in
+            if error != nil {
+                print("error signing in")
+            } else {
+                print("LOG IN WORKED!")
+                ViewChanger.currentPage = .HomeView
+            }
+        }
+    }
+    
+    
     
 
 

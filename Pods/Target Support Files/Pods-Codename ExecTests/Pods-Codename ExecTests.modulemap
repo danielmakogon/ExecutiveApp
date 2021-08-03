@@ -1,0 +1,6 @@
+framework module Pods_Codename_ExecTests {
+  umbrella header "Pods-Codename ExecTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
